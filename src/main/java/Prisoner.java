@@ -9,19 +9,25 @@ import java.util.Random;
 public class Prisoner {
     private List<Integer> lastThreeMoves = new ArrayList<>();
     private Random random = new Random();
-    private BitChromosome strategy;
+    private List<Integer> strategy = new ArrayList<>();
     private int score;
 
 
-    Prisoner(BitChromosome _strategy){
+    Prisoner(){
         score = 0;
-        strategy = _strategy;
+       // this.strategy = strategy;
         for(int i = 0; i < 3; i++){
             lastThreeMoves.add(random.nextInt(3));
         }
+        for(int i = 0; i < 64; i++){
+            strategy.add(random.nextInt(1));
+        }
+       // strategy.set(1, 1);
     }
 
-
+    boolean betray(){
+        return true;
+    }
 
     List<Integer> getLastThreeMoves(){
         return lastThreeMoves;
@@ -30,5 +36,9 @@ public class Prisoner {
     void setLastMove(int move){
         lastThreeMoves.add(move);
         lastThreeMoves.remove(3);
+    }
+
+    List<Integer> getStrategy(){
+        return strategy;
     }
 }
