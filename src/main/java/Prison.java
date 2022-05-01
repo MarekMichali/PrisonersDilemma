@@ -71,6 +71,7 @@ public class Prison {
                                         calculateScore(interrogatedStrategy.get(3), interrogatedStrategyWith.get(3), interrogated, interrogatedWith);
                                         break;
                                 }
+                                break;
                             case 1: //00-01
                                 switch (interrogated.getLastThreeMoves().get(2)){
                                     case 0: //00
@@ -87,6 +88,7 @@ public class Prison {
                                         break;
 
                                 }
+                                break;
                             case 2: //00-10
                                 switch (interrogated.getLastThreeMoves().get(2)){
                                     case 0: //00
@@ -103,6 +105,7 @@ public class Prison {
                                         break;
 
                                 }
+                                break;
                             case 3: //00-11
                                 switch (interrogated.getLastThreeMoves().get(2)){
                                     case 0: //00
@@ -119,8 +122,9 @@ public class Prison {
                                         break;
 
                                 }
-
+                                break;
                         }
+                        break;
                     case 1: //01
                         switch (interrogated.getLastThreeMoves().get(1)){
                             case 0: //01-00
@@ -139,6 +143,7 @@ public class Prison {
                                         break;
 
                                 }
+                                break;
                             case 1: //01-01
                                 switch (interrogated.getLastThreeMoves().get(2)){
                                     case 0: //00
@@ -155,6 +160,7 @@ public class Prison {
                                         break;
 
                                 }
+                                break;
                             case 2: //01-10
                                 switch (interrogated.getLastThreeMoves().get(2)){
                                     case 0: //00
@@ -171,6 +177,7 @@ public class Prison {
                                         break;
 
                                 }
+                                break;
                             case 3: //01-11
                                 switch (interrogated.getLastThreeMoves().get(2)){
                                     case 0: //00
@@ -187,8 +194,9 @@ public class Prison {
                                         break;
 
                                 }
-
+                                break;
                         }
+                        break;
                     case 2: //10
                         switch (interrogated.getLastThreeMoves().get(1)){
                             case 0: //10-00
@@ -207,6 +215,7 @@ public class Prison {
                                         break;
 
                                 }
+                                break;
                             case 1: //10-01
                                 switch (interrogated.getLastThreeMoves().get(2)){
                                     case 0: //00
@@ -223,6 +232,7 @@ public class Prison {
                                         break;
 
                                 }
+                                break;
                             case 2: //10-10
                                 switch (interrogated.getLastThreeMoves().get(2)){
                                     case 0: //00
@@ -239,6 +249,7 @@ public class Prison {
                                         break;
 
                                 }
+                                break;
                             case 3: //10-11
                                 switch (interrogated.getLastThreeMoves().get(2)){
                                     case 0: //00
@@ -255,8 +266,9 @@ public class Prison {
                                         break;
 
                                 }
-
+                                break;
                         }
+                        break;
                     case 3: //11
                         switch (interrogated.getLastThreeMoves().get(1)){
                             case 0: //11-00
@@ -275,6 +287,7 @@ public class Prison {
                                         break;
 
                                 }
+                                break;
                             case 1: //11-01
                                 switch (interrogated.getLastThreeMoves().get(2)){
                                     case 0: //00
@@ -291,6 +304,7 @@ public class Prison {
                                         break;
 
                                 }
+                                break;
                             case 2: //11-10
                                 switch (interrogated.getLastThreeMoves().get(2)){
                                     case 0: //00
@@ -307,6 +321,7 @@ public class Prison {
                                         break;
 
                                 }
+                                break;
                             case 3: //11-11
                                 switch (interrogated.getLastThreeMoves().get(2)){
                                     case 0: //00
@@ -323,7 +338,9 @@ public class Prison {
                                         break;
 
                                 }
+                                break;
                         }
+                        break;
                     }
                 }
             }
