@@ -46,7 +46,7 @@ public class Prison {
     void interrogation(){
         int left;
         int right;
-        for(int i = 0; i < prisonersCount; i++){
+        for(int i = 0; i < prisonersCount - 1; i++){
             Prisoner interrogated = prisoners.get(i);
             List<Integer> interrogatedStrategy = interrogated.getStrategy();
             for(int j = i + 1; j < prisonersCount; j++){

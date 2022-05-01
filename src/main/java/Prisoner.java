@@ -17,10 +17,10 @@ public class Prisoner {
         score = 0;
        // this.strategy = strategy;
         for(int i = 0; i < 3; i++){
-            lastThreeMoves.add(random.nextInt(3));
+            lastThreeMoves.add(random.nextInt(4));
         }
         for(int i = 0; i < 64; i++){
-            strategy.add(random.nextInt(1));
+            strategy.add(random.nextInt(2));
         }
        // strategy.set(1, 1);
     }

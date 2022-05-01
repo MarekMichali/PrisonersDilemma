@@ -5,7 +5,9 @@
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("test");
-
+        System.out.println("Before");
+        Prison prison = new Prison(20);
+        prison.interrogation();
+        System.out.println("After");
     }
 }
