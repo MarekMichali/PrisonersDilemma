@@ -6,8 +6,18 @@
 public class Main {
     public static void main(String[] args) {
         System.out.println("Before");
+        int mean = 0;
         Prison prison = new Prison(20);
-        prison.interrogation();
-        System.out.println("After");
+        for(int i = 0; i < 1000; i++){
+            prison.interrogation();
+            EvolutionEngine evolutionEngine = new EvolutionEngine(prison);
+            evolutionEngine.calculateMean();
+            mean = evolutionEngine.getMean();
+            System.out.println(mean);
+            evolutionEngine.reproduce();
+        }
+
+        System.out.println(mean);
+
     }
 }

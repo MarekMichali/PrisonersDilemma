@@ -10,6 +10,10 @@ import java.util.List;
 //1 -> cooperate
 //0 -> betray
 public class Prison {
+    public List<Prisoner> getPrisoners() {
+        return prisoners;
+    }
+
     private List<Prisoner> prisoners = new ArrayList<>();
     private int prisonersCount;
     private int numberOfInterrogations = 20;
@@ -20,6 +24,16 @@ public class Prison {
         }
     }
 
+    public int getPrisonScore(){
+        int scoreSum = 0;
+        for(int i = 0; i < prisonersCount; i++){
+            scoreSum += prisoners.get(0).getScore();
+        }
+        return scoreSum;
+    }
+    public int getPrisonersCount() {
+        return prisonersCount;
+    }
     void calculateScore(int left, int right, Prisoner interrogated, Prisoner interrogatedWith){
         if(left == right && left == 1){
             interrogated.changeScore(3);
@@ -44,6 +58,9 @@ public class Prison {
         }
     }
     void interrogation(){
+        for(int i = 0; i < prisonersCount; i++){
+            prisoners.get(i).changeScore(-prisoners.get(i).getScore());
+        }
         int left;
         int right;
         for(int i = 0; i < prisonersCount - 1; i++){
