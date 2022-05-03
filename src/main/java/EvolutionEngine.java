@@ -48,8 +48,21 @@ public class EvolutionEngine {
                 int cross = random.nextInt(64);
                 List<Integer> strategyCopyLeft = new ArrayList<>(meanEqual.get(i).getStrategy());
                 for (int j = cross; j < 64; j++) {
-                    meanEqual.get(i).setMove(j, meanEqual.get(i + 1).getStrategy().get(j));
-                    meanEqual.get(i + 1).setMove(j, strategyCopyLeft.get(j));
+                    if(random.nextInt(100) == 1){
+                        if(meanEqual.get(i + 1).getStrategy().get(j) == 0){
+                            meanEqual.get(i).setMove(j, 1);
+                            meanEqual.get(i + 1).setMove(j, strategyCopyLeft.get(j));
+                        }
+                        else{
+                            meanEqual.get(i).setMove(j, 0);
+                            meanEqual.get(i + 1).setMove(j, strategyCopyLeft.get(j));
+                        }
+
+                    } else {
+                        meanEqual.get(i).setMove(j, meanEqual.get(i + 1).getStrategy().get(j));
+                        meanEqual.get(i + 1).setMove(j, strategyCopyLeft.get(j));
+                    }
+
                 }
             }
         } else{
@@ -57,8 +70,20 @@ public class EvolutionEngine {
                 int cross = random.nextInt(64);
                 List<Integer> strategyCopyLeft = new ArrayList<>(meanEqual.get(i).getStrategy());
                 for (int j = cross; j < 64; j++) {
-                    meanEqual.get(i).setMove(j, meanEqual.get(i + 1).getStrategy().get(j));
-                    meanEqual.get(i + 1).setMove(j, strategyCopyLeft.get(j));
+                    if(random.nextInt(100) == 1){
+                        if(meanEqual.get(i + 1).getStrategy().get(j) == 0){
+                            meanEqual.get(i).setMove(j, 1);
+                            meanEqual.get(i + 1).setMove(j, strategyCopyLeft.get(j));
+                        }
+                        else{
+                            meanEqual.get(i).setMove(j, 0);
+                            meanEqual.get(i + 1).setMove(j, strategyCopyLeft.get(j));
+                        }
+
+                    } else {
+                        meanEqual.get(i).setMove(j, meanEqual.get(i + 1).getStrategy().get(j));
+                        meanEqual.get(i + 1).setMove(j, strategyCopyLeft.get(j));
+                    }
                 }
             }
         }
@@ -92,8 +117,20 @@ public class EvolutionEngine {
                 int cross = random.nextInt(64);
                 List<Integer> strategyCopyLeft = new ArrayList<>(meanPlus.get(i).getStrategy());
                 for (int j = cross; j < 64; j++) {
-                    meanPlus.get(i).setMove(j, meanPlus.get(i + 1).getStrategy().get(j));
-                    meanPlus.get(i + 1).setMove(j, strategyCopyLeft.get(j));
+                    if(random.nextInt(100) == 1){
+                        if(meanPlus.get(i + 1).getStrategy().get(j) == 0){
+                            meanPlus.get(i).setMove(j, 1);
+                            meanPlus.get(i + 1).setMove(j, strategyCopyLeft.get(j));
+                        }
+                        else{
+                            meanPlus.get(i).setMove(j, 0);
+                            meanPlus.get(i + 1).setMove(j, strategyCopyLeft.get(j));
+                        }
+
+                    } else {
+                        meanPlus.get(i).setMove(j, meanPlus.get(i + 1).getStrategy().get(j));
+                        meanPlus.get(i + 1).setMove(j, strategyCopyLeft.get(j));
+                    }
                 }
             }
         } else{
@@ -101,8 +138,20 @@ public class EvolutionEngine {
                 int cross = random.nextInt(64);
                 List<Integer> strategyCopyLeft = new ArrayList<>(meanPlus.get(i).getStrategy());
                 for (int j = cross; j < 64; j++) {
-                    meanPlus.get(i).setMove(j, meanPlus.get(i + 1).getStrategy().get(j));
-                    meanPlus.get(i + 1).setMove(j, strategyCopyLeft.get(j));
+                    if(random.nextInt(100) == 1){
+                        if(meanPlus.get(i + 1).getStrategy().get(j) == 0){
+                            meanPlus.get(i).setMove(j, 1);
+                            meanPlus.get(i + 1).setMove(j, strategyCopyLeft.get(j));
+                        }
+                        else{
+                            meanPlus.get(i).setMove(j, 0);
+                            meanPlus.get(i + 1).setMove(j, strategyCopyLeft.get(j));
+                        }
+
+                    } else {
+                        meanPlus.get(i).setMove(j, meanPlus.get(i + 1).getStrategy().get(j));
+                        meanPlus.get(i + 1).setMove(j, strategyCopyLeft.get(j));
+                    }
                 }
             }
         }

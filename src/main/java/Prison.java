@@ -16,7 +16,7 @@ public class Prison {
 
     private List<Prisoner> prisoners = new ArrayList<>();
     private int prisonersCount;
-    private int numberOfInterrogations = 20;
+    private int numberOfInterrogations = 1;
     Prison(int prisonersCount){
         this.prisonersCount = prisonersCount;
         for(int i = 0; i < prisonersCount; i++){
@@ -58,6 +58,7 @@ public class Prison {
         }
     }
     void interrogation(){
+        //osatnie 3 ruchy
         for(int i = 0; i < prisonersCount; i++){
             prisoners.get(i).changeScore(-prisoners.get(i).getScore());
         }
