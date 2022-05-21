@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 //moves coding
 //00 -> 0
@@ -16,7 +17,8 @@ public class Prison {
 
     private List<Prisoner> prisoners = new ArrayList<>();
     private int prisonersCount;
-    private int numberOfInterrogations = 1;
+    private int numberOfInterrogations = 20;
+    private Random random = new Random();
     Prison(int prisonersCount){
         this.prisonersCount = prisonersCount;
         for(int i = 0; i < prisonersCount; i++){
@@ -58,9 +60,13 @@ public class Prison {
         }
     }
     void interrogation(){
-        //osatnie 3 ruchy
+
         for(int i = 0; i < prisonersCount; i++){
             prisoners.get(i).changeScore(-prisoners.get(i).getScore());
+            //osatnie 3 ruchy
+          //  for(int j = 0; j < 3; j++){
+          //      prisoners.get(i).setLastMove(random.nextInt(4));
+          //  }
         }
         int left;
         int right;
@@ -70,6 +76,10 @@ public class Prison {
             for(int j = i + 1; j < prisonersCount; j++){
                 Prisoner interrogatedWith = prisoners.get(j);
                 List<Integer> interrogatedStrategyWith = interrogatedWith.getStrategy();
+                for(int k = 0; k < 3; k++){
+                    interrogated.setLastMove(random.nextInt(4));
+                    interrogatedWith.setLastMove(random.nextInt(4));
+                }
                 for(int k = 0; k < numberOfInterrogations; k++){
                     switch (interrogated.getLastThreeMoves().get(0)){
                     case 0: //00

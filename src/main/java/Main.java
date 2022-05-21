@@ -12,7 +12,8 @@ public class Main {
     public static void main(String[] args) throws IOException {
         System.out.println("Before");
         int mean = 0;
-        Prison prison = new Prison(200);
+        int count = 50;
+        Prison prison = new Prison(count);
         File file = new File("logs.txt");
         file.delete();
         BufferedWriter logs = new BufferedWriter(new FileWriter("logs.txt", true));
@@ -22,7 +23,8 @@ public class Main {
             EvolutionEngine evolutionEngine = new EvolutionEngine(prison);
             evolutionEngine.calculateMean();
             mean = evolutionEngine.getMean();
-            for(int j = 0; j < 20; j++){
+            logs.append(Integer.toString(mean) + '\n');
+            for(int j = 0; j < count; j++){
                 for(int k = 0; k < 64; k++){
                     logs.append(prison.getPrisoners().get(j).getStrategy().get(k).toString());
                 }
