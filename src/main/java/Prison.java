@@ -8,6 +8,7 @@ import java.util.Random;
 //01 -> 1
 //10 -> 2
 //11 -> 3
+//none -> -1
 
 //1 -> cooperate
 //0 -> betray
@@ -80,15 +81,27 @@ public class Prison {
                 Prisoner interrogatedWith = prisoners.get(j);
                 List<Integer> interrogatedStrategyWith = interrogatedWith.getStrategy();
                 for(int k = 0; k < 3; k++){
-                    interrogated.setLastMove(random.nextInt(4));
-                    interrogatedWith.setLastMove(random.nextInt(4));
+                  //  interrogated.setLastMove(random.nextInt(4));
+                   // interrogatedWith.setLastMove(random.nextInt(4));
+                    interrogated.setLastMove(-1);
+                    interrogatedWith.setLastMove(-1);
                 }
                 for(int k = 0; k < numberOfInterrogations; k++){
                     switch (interrogated.getLastThreeMoves().get(0)){
-                    case 0: //00
+                        case -1: //none
+                            calculateScore(interrogatedStrategy.get(64), interrogatedStrategyWith.get(64), interrogated, interrogatedWith);
+                            break;
+                        case 0: //00
                         switch (interrogated.getLastThreeMoves().get(1)){
+                            case -1: //00-none
+                                calculateScore(interrogatedStrategy.get(65), interrogatedStrategyWith.get(65), interrogated, interrogatedWith);
+                                break;
+
                             case 0: //00-00
                                 switch (interrogated.getLastThreeMoves().get(2)){
+                                    case -1: //none
+                                        calculateScore(interrogatedStrategy.get(69), interrogatedStrategyWith.get(69), interrogated, interrogatedWith);
+                                        break;
                                     case 0: //00
                                         calculateScore(interrogatedStrategy.get(0), interrogatedStrategyWith.get(0), interrogated, interrogatedWith);
                                         break;
@@ -105,6 +118,9 @@ public class Prison {
                                 break;
                             case 1: //00-01
                                 switch (interrogated.getLastThreeMoves().get(2)){
+                                    case -1: //none
+                                        calculateScore(interrogatedStrategy.get(70), interrogatedStrategyWith.get(71), interrogated, interrogatedWith);
+                                        break;
                                     case 0: //00
                                         calculateScore(interrogatedStrategy.get(4), interrogatedStrategyWith.get(8), interrogated, interrogatedWith);
                                         break;
@@ -122,6 +138,9 @@ public class Prison {
                                 break;
                             case 2: //00-10
                                 switch (interrogated.getLastThreeMoves().get(2)){
+                                    case -1: //none
+                                        calculateScore(interrogatedStrategy.get(71), interrogatedStrategyWith.get(70), interrogated, interrogatedWith);
+                                        break;
                                     case 0: //00
                                         calculateScore(interrogatedStrategy.get(8), interrogatedStrategyWith.get(4), interrogated, interrogatedWith);
                                         break;
@@ -139,6 +158,9 @@ public class Prison {
                                 break;
                             case 3: //00-11
                                 switch (interrogated.getLastThreeMoves().get(2)){
+                                    case -1: //none
+                                        calculateScore(interrogatedStrategy.get(72), interrogatedStrategyWith.get(72), interrogated, interrogatedWith);
+                                        break;
                                     case 0: //00
                                         calculateScore(interrogatedStrategy.get(12), interrogatedStrategyWith.get(12), interrogated, interrogatedWith);
                                         break;
@@ -158,8 +180,14 @@ public class Prison {
                         break;
                     case 1: //01
                         switch (interrogated.getLastThreeMoves().get(1)){
+                            case -1: //01-none
+                                calculateScore(interrogatedStrategy.get(66), interrogatedStrategyWith.get(67), interrogated, interrogatedWith);
+                                break;
                             case 0: //01-00
                                 switch (interrogated.getLastThreeMoves().get(2)){
+                                    case -1: //none
+                                        calculateScore(interrogatedStrategy.get(73), interrogatedStrategyWith.get(77), interrogated, interrogatedWith);
+                                        break;
                                     case 0: //00
                                         calculateScore(interrogatedStrategy.get(16), interrogatedStrategyWith.get(32), interrogated, interrogatedWith);
                                         break;
@@ -177,6 +205,9 @@ public class Prison {
                                 break;
                             case 1: //01-01
                                 switch (interrogated.getLastThreeMoves().get(2)){
+                                    case -1: //none
+                                        calculateScore(interrogatedStrategy.get(74), interrogatedStrategyWith.get(79), interrogated, interrogatedWith);
+                                        break;
                                     case 0: //00
                                         calculateScore(interrogatedStrategy.get(20), interrogatedStrategyWith.get(40), interrogated, interrogatedWith);
                                         break;
@@ -194,6 +225,9 @@ public class Prison {
                                 break;
                             case 2: //01-10
                                 switch (interrogated.getLastThreeMoves().get(2)){
+                                    case -1: //none
+                                        calculateScore(interrogatedStrategy.get(75), interrogatedStrategyWith.get(78), interrogated, interrogatedWith);
+                                        break;
                                     case 0: //00
                                         calculateScore(interrogatedStrategy.get(24), interrogatedStrategyWith.get(36), interrogated, interrogatedWith);
                                         break;
@@ -211,6 +245,9 @@ public class Prison {
                                 break;
                             case 3: //01-11
                                 switch (interrogated.getLastThreeMoves().get(2)){
+                                    case -1: //none
+                                        calculateScore(interrogatedStrategy.get(76), interrogatedStrategyWith.get(80), interrogated, interrogatedWith);
+                                        break;
                                     case 0: //00
                                         calculateScore(interrogatedStrategy.get(28), interrogatedStrategyWith.get(44), interrogated, interrogatedWith);
                                         break;
@@ -230,8 +267,14 @@ public class Prison {
                         break;
                     case 2: //10
                         switch (interrogated.getLastThreeMoves().get(1)){
+                            case -1: //10-none
+                                calculateScore(interrogatedStrategy.get(67), interrogatedStrategyWith.get(66), interrogated, interrogatedWith);
+                                break;
                             case 0: //10-00
                                 switch (interrogated.getLastThreeMoves().get(2)){
+                                    case -1: //none
+                                        calculateScore(interrogatedStrategy.get(77), interrogatedStrategyWith.get(73), interrogated, interrogatedWith);
+                                        break;
                                     case 0: //00
                                         calculateScore(interrogatedStrategy.get(32), interrogatedStrategyWith.get(16), interrogated, interrogatedWith);
                                         break;
@@ -249,6 +292,9 @@ public class Prison {
                                 break;
                             case 1: //10-01
                                 switch (interrogated.getLastThreeMoves().get(2)){
+                                    case -1: //none
+                                        calculateScore(interrogatedStrategy.get(78), interrogatedStrategyWith.get(75), interrogated, interrogatedWith);
+                                        break;
                                     case 0: //00
                                         calculateScore(interrogatedStrategy.get(36), interrogatedStrategyWith.get(24), interrogated, interrogatedWith);
                                         break;
@@ -266,6 +312,9 @@ public class Prison {
                                 break;
                             case 2: //10-10
                                 switch (interrogated.getLastThreeMoves().get(2)){
+                                    case -1: //none
+                                        calculateScore(interrogatedStrategy.get(79), interrogatedStrategyWith.get(74), interrogated, interrogatedWith);
+                                        break;
                                     case 0: //00
                                         calculateScore(interrogatedStrategy.get(40), interrogatedStrategyWith.get(20), interrogated, interrogatedWith);
                                         break;
@@ -283,6 +332,9 @@ public class Prison {
                                 break;
                             case 3: //10-11
                                 switch (interrogated.getLastThreeMoves().get(2)){
+                                    case -1: //none
+                                        calculateScore(interrogatedStrategy.get(80), interrogatedStrategyWith.get(76), interrogated, interrogatedWith);
+                                        break;
                                     case 0: //00
                                         calculateScore(interrogatedStrategy.get(44), interrogatedStrategyWith.get(28), interrogated, interrogatedWith);
                                         break;
@@ -302,8 +354,14 @@ public class Prison {
                         break;
                     case 3: //11
                         switch (interrogated.getLastThreeMoves().get(1)){
+                            case -1: //11-none
+                                calculateScore(interrogatedStrategy.get(68), interrogatedStrategyWith.get(68), interrogated, interrogatedWith);
+                                break;
                             case 0: //11-00
                                 switch (interrogated.getLastThreeMoves().get(2)){
+                                    case -1: //none
+                                        calculateScore(interrogatedStrategy.get(81), interrogatedStrategyWith.get(81), interrogated, interrogatedWith);
+                                        break;
                                     case 0: //00
                                         calculateScore(interrogatedStrategy.get(48), interrogatedStrategyWith.get(48), interrogated, interrogatedWith);
                                         break;
@@ -321,6 +379,9 @@ public class Prison {
                                 break;
                             case 1: //11-01
                                 switch (interrogated.getLastThreeMoves().get(2)){
+                                    case -1: //none
+                                        calculateScore(interrogatedStrategy.get(82), interrogatedStrategyWith.get(83), interrogated, interrogatedWith);
+                                        break;
                                     case 0: //00
                                         calculateScore(interrogatedStrategy.get(52), interrogatedStrategyWith.get(56), interrogated, interrogatedWith);
                                         break;
@@ -338,6 +399,9 @@ public class Prison {
                                 break;
                             case 2: //11-10
                                 switch (interrogated.getLastThreeMoves().get(2)){
+                                    case -1: //none
+                                        calculateScore(interrogatedStrategy.get(83), interrogatedStrategyWith.get(82), interrogated, interrogatedWith);
+                                        break;
                                     case 0: //00
                                         calculateScore(interrogatedStrategy.get(56), interrogatedStrategyWith.get(52), interrogated, interrogatedWith);
                                         break;
@@ -355,6 +419,9 @@ public class Prison {
                                 break;
                             case 3: //11-11
                                 switch (interrogated.getLastThreeMoves().get(2)){
+                                    case -1: //none
+                                        calculateScore(interrogatedStrategy.get(84), interrogatedStrategyWith.get(84), interrogated, interrogatedWith);
+                                        break;
                                     case 0: //00
                                         calculateScore(interrogatedStrategy.get(60), interrogatedStrategyWith.get(60), interrogated, interrogatedWith);
                                         break;

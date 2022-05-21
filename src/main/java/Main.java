@@ -34,7 +34,7 @@ public class Main {
             mean = evolutionEngine.getMean();
             logs.append(Integer.toString(mean) + '\n');
             for(int j = 0; j < count; j++){
-                for(int k = 0; k < 64; k++){
+                for(int k = 0; k < 85; k++){
                     logs.append(prison.getPrisoners().get(j).getStrategy().get(k).toString());
                 }
                 logs.append('\n');

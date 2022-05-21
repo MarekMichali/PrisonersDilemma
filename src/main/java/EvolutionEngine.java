@@ -4,11 +4,12 @@ import java.util.Random;
 
 public class EvolutionEngine {
     private Prison prison;
+    int chromoCount = 85;
 
     public int getMean() {
         return mean;
     }
-    private int mutationRation = 1000;
+    private int mutationRation = 100000;
     private int mean;
     int standardDeviation = 0;
     private Random random = new Random();
@@ -45,9 +46,9 @@ public class EvolutionEngine {
         //standard
         if(meanEqual.size() % 2 == 0){
             for(int i = 0; i < meanEqual.size(); i+=2) {
-                int cross = random.nextInt(64);
+                int cross = random.nextInt(chromoCount);
                 List<Integer> strategyCopyLeft = new ArrayList<>(meanEqual.get(i).getStrategy());
-                for (int j = cross; j < 64; j++) {
+                for (int j = cross; j < chromoCount; j++) {
                     if(random.nextInt(mutationRation) == 1){
                         if(meanEqual.get(i + 1).getStrategy().get(j) == 0){
                             meanEqual.get(i).setMove(j, 1);
@@ -67,9 +68,9 @@ public class EvolutionEngine {
             }
         } else{
             for(int i = 1; i < meanEqual.size(); i+=2) {
-                int cross = random.nextInt(64);
+                int cross = random.nextInt(chromoCount);
                 List<Integer> strategyCopyLeft = new ArrayList<>(meanEqual.get(i).getStrategy());
-                for (int j = cross; j < 64; j++) {
+                for (int j = cross; j < chromoCount; j++) {
                     if(random.nextInt(mutationRation) == 1){
                         if(meanEqual.get(i + 1).getStrategy().get(j) == 0){
                             meanEqual.get(i).setMove(j, 1);
@@ -116,7 +117,7 @@ public class EvolutionEngine {
         int lastMax = 0;
         for(int i = 0; i < meanMinus.size(); i++) {
             if(meanPlus.size() >= i + 1){
-                for (int k = 0; k < 64; k++) {
+                for (int k = 0; k < chromoCount; k++) {
                     meanMinus.get(i).setMove(k, meanPlus.get(i).getStrategy().get(k));
                 }
             }
@@ -125,9 +126,9 @@ public class EvolutionEngine {
         //best
         if(meanPlus.size() % 2 == 0){
             for(int i = 0; i < meanPlus.size(); i+=2) {
-                int cross = random.nextInt(64);
+                int cross = random.nextInt(chromoCount);
                 List<Integer> strategyCopyLeft = new ArrayList<>(meanPlus.get(i).getStrategy());
-                for (int j = cross; j < 64; j++) {
+                for (int j = cross; j < chromoCount; j++) {
                     if(random.nextInt(mutationRation) == 1){
                         if(meanPlus.get(i + 1).getStrategy().get(j) == 0){
                             meanPlus.get(i).setMove(j, 1);
@@ -146,9 +147,9 @@ public class EvolutionEngine {
             }
         } else{
             for(int i = 1; i < meanPlus.size(); i+=2) {
-                int cross = random.nextInt(64);
+                int cross = random.nextInt(chromoCount);
                 List<Integer> strategyCopyLeft = new ArrayList<>(meanPlus.get(i).getStrategy());
-                for (int j = cross; j < 64; j++) {
+                for (int j = cross; j < chromoCount; j++) {
                     if(random.nextInt(mutationRation) == 1){
                         if(meanPlus.get(i + 1).getStrategy().get(j) == 0){
                             meanPlus.get(i).setMove(j, 1);

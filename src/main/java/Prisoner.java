@@ -20,9 +20,10 @@ public class Prisoner {
         score = 0;
        // this.strategy = strategy;
         for(int i = 0; i < 3; i++){
-            lastThreeMoves.add(random.nextInt(4));
+          //  lastThreeMoves.add(random.nextInt(4));
+            lastThreeMoves.add(-1);
         }
-        for(int i = 0; i < 64; i++){
+        for(int i = 0; i < 85; i++){
             strategy.add(random.nextInt(2));
         }
        // strategy.set(1, 1);
