@@ -33,7 +33,7 @@ public class EvolutionEngine {
 
     void reproduce(){
         for(int i = 0; i < prison.getPrisonersCount(); i++){
-            if(prison.getPrisoners().get(i).getScore() > mean + standardDeviation){
+            if(prison.getPrisoners().get(i).getScore() >= mean + standardDeviation){
                 meanPlus.add(prison.getPrisoners().get(i));
             } else if (prison.getPrisoners().get(i).getScore() < mean - standardDeviation) {
                 meanMinus.add(prison.getPrisoners().get(i));
@@ -88,8 +88,8 @@ public class EvolutionEngine {
             }
         }
 
-        //wors
-        int max = 0;
+        //wors porpawic
+       /* int max = 0;
         int lastMax = 0;
         for(int i = 0; i < meanMinus.size(); i+=2) {
 
@@ -110,7 +110,18 @@ public class EvolutionEngine {
             }
 
         }
+*/
+        //worst
+        int max = 0;
+        int lastMax = 0;
+        for(int i = 0; i < meanMinus.size(); i++) {
+            if(meanPlus.size() >= i + 1){
+                for (int k = 0; k < 64; k++) {
+                    meanMinus.get(i).setMove(k, meanPlus.get(i).getStrategy().get(k));
+                }
+            }
 
+        }
         //best
         if(meanPlus.size() % 2 == 0){
             for(int i = 0; i < meanPlus.size(); i+=2) {
@@ -189,7 +200,8 @@ public class EvolutionEngine {
 
                 }
             }
-        } else{
+        }
+        else{
             for(int i = 1; i < meanEqual.size(); i+=2) {
                 int cross = random.nextInt(64);
                 List<Integer> strategyCopyLeft = new ArrayList<>(meanEqual.get(i).getStrategy());
@@ -280,6 +292,17 @@ public class EvolutionEngine {
             }
         }
     }
+  /*  void reproducev3(){
+        int margin = (int) (prison.getPrisonersCount() * 0.3);
+        for(int i = 0; i < prison.getPrisonersCount(); i++){
+
+            if(prison.getPrisoners().get(i).getScore() > mean){
+                meanPlus.add(prison.getPrisoners().get(i));
+            } else {
+                meanMinus.add(prison.getPrisoners().get(i));
+            }
+        }
+    }*/
 }
 
 

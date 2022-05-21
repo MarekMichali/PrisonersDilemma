@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -19,8 +20,9 @@ public class Prison {
     private int prisonersCount;
     private int numberOfInterrogations = 20;
     private Random random = new Random();
-    Prison(int prisonersCount){
+    Prison(int prisonersCount, int numberOfInterrogations){
         this.prisonersCount = prisonersCount;
+        this.numberOfInterrogations = numberOfInterrogations;
         for(int i = 0; i < prisonersCount; i++){
             prisoners.add(new Prisoner());
         }
@@ -70,6 +72,7 @@ public class Prison {
         }
         int left;
         int right;
+        Collections.shuffle(prisoners);
         for(int i = 0; i < prisonersCount - 1; i++){
             Prisoner interrogated = prisoners.get(i);
             List<Integer> interrogatedStrategy = interrogated.getStrategy();
