@@ -26,8 +26,9 @@ public class Main {
         File file = new File("logs.txt");
         file.delete();
         BufferedWriter logs = new BufferedWriter(new FileWriter("logs.txt", true));
-        logs.write("start \n");
+        //logs.write("start \n");
         for(int i = 0; i < interrogationCount; i++){;
+
             prison.interrogation();
             EvolutionEngine evolutionEngine = new EvolutionEngine(prison);
             evolutionEngine.calculateMean();
@@ -39,11 +40,12 @@ public class Main {
                 }
                 logs.append('\n');
             }
-            logs.append('\n');
-            logs.append('\n');
+          //  logs.append('\n');
+           // logs.append('\n');
             System.out.println(mean);
             evolutionEngine.reproduce();
         }
+
         logs.close();
         System.out.println(mean);
 

@@ -73,7 +73,7 @@ public class Prison {
         }
         int left;
         int right;
-        Collections.shuffle(prisoners);
+     //   Collections.shuffle(prisoners);
         for(int i = 0; i < prisonersCount - 1; i++){
             Prisoner interrogated = prisoners.get(i);
             List<Integer> interrogatedStrategy = interrogated.getStrategy();
