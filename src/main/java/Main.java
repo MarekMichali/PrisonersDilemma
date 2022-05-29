@@ -3,6 +3,7 @@
 //3 ostatnie ruchy xx-xx-xx czyli 4*4*4=64 mozliwosci
 //3 pierwsze ruchy generowac losowo
 
+import javax.swing.*;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -11,6 +12,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
+        Gui gui = new Gui();
+/*
         Scanner in = new Scanner(System.in);
         System.out.println("Enter population count: ");
         int count = in.nextInt();
@@ -27,7 +30,7 @@ public class Main {
         file.delete();
         BufferedWriter logs = new BufferedWriter(new FileWriter("logs.txt", true));
         //logs.write("start \n");
-        for(int i = 0; i < interrogationCount; i++){;
+        for(int i = 0; i < interrogationCount; i++){
 
             prison.interrogation();
             EvolutionEngine evolutionEngine = new EvolutionEngine(prison);
@@ -48,6 +51,6 @@ public class Main {
 
         logs.close();
         System.out.println(mean);
-
+*/
     }
 }
