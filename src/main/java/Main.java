@@ -12,7 +12,12 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        Gui gui = new Gui();
+     //   Gui gui = new Gui();
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Gui();
+            }
+        });
 /*
         Scanner in = new Scanner(System.in);
         System.out.println("Enter population count: ");

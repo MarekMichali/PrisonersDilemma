@@ -19,16 +19,18 @@ public class Statistic {
         this.populationCount = populationCount;
         this.interrogationCount = interrogationCount;
     }
+
     void generateStatics() throws FileNotFoundException {
         File myObj = new File(fileName);
         Scanner myReader = new Scanner(myObj);
         int i = 0;
         while (myReader.hasNextLine()) {
             String line = myReader.nextLine();
-            if(i % populationCount + 2 == 0){
+            if(i % (populationCount + 1) == 0){
                 means.add(Integer.parseInt(line));
             }
             i++;
+
             //System.out.println(line);
         }
     }
