@@ -31,7 +31,6 @@ public class Statistic {
             }
             i++;
 
-            //System.out.println(line);
         }
     }
 }

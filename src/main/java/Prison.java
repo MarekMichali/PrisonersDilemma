@@ -16,11 +16,10 @@ public class Prison {
     public List<Prisoner> getPrisoners() {
         return prisoners;
     }
-
     private List<Prisoner> prisoners = new ArrayList<>();
     private int prisonersCount;
     private int numberOfInterrogations = 20;
-    private Random random = new Random();
+   // private Random random = new Random();
     Prison(int prisonersCount, int numberOfInterrogations){
         this.prisonersCount = prisonersCount;
         this.numberOfInterrogations = numberOfInterrogations;
@@ -36,6 +35,7 @@ public class Prison {
         }
         return scoreSum;
     }
+
     public int getPrisonersCount() {
         return prisonersCount;
     }
@@ -443,12 +443,5 @@ public class Prison {
                 }
             }
         }
-    }
-
-    void interrogation2(int whoID, int withID){
-        Prisoner who = prisoners.get(whoID);
-        Prisoner with = prisoners.get(withID);
-        List<Integer> whoStrategy = who.getStrategy();
-        List<Integer> withStrategy = with.getStrategy();
     }
 }

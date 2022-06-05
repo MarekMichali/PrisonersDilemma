@@ -10,9 +10,6 @@ public class Prisoner {
     private List<Integer> lastThreeMoves = new ArrayList<>();
     private Random random = new Random();
     private List<Integer> strategy = new ArrayList<>();
-
-
-
     private int score = 0;
 
 
@@ -28,11 +25,9 @@ public class Prisoner {
         }
        // strategy.set(1, 1);
     }
-
     public int getScore() {
         return score;
     }
-
 
     List<Integer> getLastThreeMoves(){
         return lastThreeMoves;
