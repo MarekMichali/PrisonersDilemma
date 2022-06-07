@@ -37,18 +37,33 @@ public class Gui extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 int mean = 0;
-                Prison prison = new Prison(Integer.parseInt(populationCount.getText()), Integer.parseInt(numberOfInterrogations.getText()));
+                int numOfIt = 20;
+                int popCount = 20;
+                int interCount = 20;
+                if (numberOfInterrogations.getText() != null && numberOfInterrogations.getText().matches("\\d+")){
+                    numOfIt = Integer.parseInt(numberOfInterrogations.getText());
+                }
+                if (populationCount.getText() != null && populationCount.getText().matches("\\d+")){
+                    popCount = Integer.parseInt(populationCount.getText());
+                }
+                if (interrogationCount.getText() != null && interrogationCount.getText().matches("\\d+")){
+                    interCount = Integer.parseInt(interrogationCount.getText());
+                }
+
+
+
+                Prison prison = new Prison(popCount, numOfIt);
                 File file = new File("logs.txt");
                 file.delete();
                 try {
                     BufferedWriter logs = new BufferedWriter(new FileWriter("logs.txt", true));
-                    for(int i = 0; i < Integer.parseInt(interrogationCount.getText()); i++){
+                    for(int i = 0; i < interCount; i++){
                         prison.interrogation();
                         EvolutionEngine evolutionEngine = new EvolutionEngine(prison);
                         evolutionEngine.calculateMean();
                         mean = evolutionEngine.getMean();
                         logs.append(Integer.toString(mean) + '\n');
-                        for(int j = 0; j < Integer.parseInt(populationCount.getText()); j++){
+                        for(int j = 0; j < popCount; j++){
                             for(int k = 0; k < 85; k++){
                                 logs.append(prison.getPrisoners().get(j).getStrategy().get(k).toString());
                             }
@@ -57,14 +72,14 @@ public class Gui extends JFrame{
                         evolutionEngine.reproduce();
                     }
                     logs.close();
-                    Statistic statistic = new Statistic("logs.txt", Integer.parseInt(populationCount.getText()), Integer.parseInt(interrogationCount.getText()) );
+                    Statistic statistic = new Statistic("logs.txt", popCount, interCount );
                     try {
                         statistic.generateStatics();
                         ChartPanel cp = new ChartPanel(generateChart(statistic));
                         panel.removeAll();
                         panel.add(cp);
-                        panel.repaint();
                         panel.revalidate();
+                        panel.repaint();
                     } catch (FileNotFoundException ex) {
                         ex.printStackTrace();
                     }
