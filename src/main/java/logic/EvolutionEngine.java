@@ -114,13 +114,16 @@ public class EvolutionEngine {
         }
 */
         //worst
-        int max = 0;
-        int lastMax = 0;
+        int counter = 0;
         for(int i = 0; i < meanMinus.size(); i++) {
-            if(meanPlus.size() >= i + 1){
+            if(meanPlus.size() > 0 && meanPlus.size() >= counter + 1){
                 for (int k = 0; k < chromoCount; k++) {
-                    meanMinus.get(i).setMove(k, meanPlus.get(i).getStrategy().get(k));
+                    meanMinus.get(i).setMove(k, meanPlus.get(counter).getStrategy().get(k));
                 }
+                counter++;
+            }
+            else if(meanPlus.size() > 0){
+                counter = 0;
             }
 
         }

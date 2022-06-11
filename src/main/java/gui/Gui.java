@@ -26,7 +26,7 @@ public class Gui extends JFrame{
 
     public Gui() {
         setContentPane(panel);
-        setTitle("Test");
+        setTitle("Prisoners dilemma");
         Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
         int width = (int)size.getWidth();
         int height = (int)size.getHeight();
