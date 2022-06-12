@@ -41,15 +41,30 @@ public class Gui extends JFrame{
 
 
     public Gui() {
-        firstLabel.setPreferredSize(new Dimension(50, 20));
-        firstLabel.setPreferredSize(new Dimension(50, 20));
-        firstLabel.setPreferredSize(new Dimension(50, 20));
+
+
+        Dimension myLalebs = new Dimension(200,30);
+        Font myFont = new Font("SansSerif", Font.BOLD, 30);
+        populationCount.setPreferredSize(myLalebs);
+        numberOfInterrogations.setPreferredSize(myLalebs);
+        interrogationCount.setPreferredSize(myLalebs);
+        populationCount.setFont(myFont);
+        interrogationCount.setFont(myFont);
+        numberOfInterrogations.setFont(myFont);
+
+        firstLabel.setFont(myFont);
+        secondLabel.setFont(myFont);
+        thirdLabel.setFont(myFont);
+
+        button1.setPreferredSize(new Dimension(200,90));
+        button1.setFont(new Font("SansSerif", Font.BOLD, 50));
+
         setContentPane(panel);
         setTitle("Prisoners dilemma");
         Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
         int width = (int)size.getWidth();
         int height = (int)size.getHeight();
-        setSize(width-100, height-100);
+        setSize(width - 100, height - 100);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
         button1.addActionListener(new ActionListener() {
@@ -59,17 +74,17 @@ public class Gui extends JFrame{
                     innerPanel.removeAll();
                     //JButton b=new JButton("Click Here");
                    // JTextField t1=new JTextField();
-                    t1.setPreferredSize(new Dimension(40,20));
-
-                    t2.setPreferredSize(new Dimension(40,20));
-
-                    t3.setPreferredSize(new Dimension(40,20));
-
+                    t1.setPreferredSize(myLalebs);
+                    t1.setFont(myFont);
+                    t2.setPreferredSize(myLalebs);
+                    t2.setFont(myFont);
+                    t3.setPreferredSize(myLalebs);
+                    t3.setFont(myFont);
                    // cp.setPreferredSize(new Dimension((panel.getWidth()-100), (panel.getHeight()-100)));
                     innerPanel.add(t1);
                     innerPanel.add(t2);
                     innerPanel.add(t3);
-
+                    button1.setText("Get move");
                     // innerPanel.add(b);
                     innerPanel.revalidate();
                     innerPanel.repaint();
@@ -465,8 +480,9 @@ public class Gui extends JFrame{
                         ChartPanel cp = new ChartPanel(generateChart(statistic));
                       //  cp.setDomainZoomable(true);
                         innerPanel.removeAll();
-                        JButton b=new JButton("Click Here");
+                       // JButton b=new JButton("Click Here");
                         cp.setPreferredSize(new Dimension((panel.getWidth()-100), (panel.getHeight()-100)));
+                        button1.setText("Next");
                         innerPanel.add(cp);
                        // innerPanel.add(b);
                         innerPanel.revalidate();
